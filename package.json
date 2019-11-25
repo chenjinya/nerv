@@ -1,0 +1,29 @@
+{
+  "name": "Nerv运维平台",
+  "version": "1.0.0",
+  "description": "运维平台",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenjinya/nerv.git"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node-dev index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "server"
+  ],
+  "author": "jinyachen@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "qomolangma": "^1.2.1"
+  },
+  "devDependencies": {
+    "node-dev": "^4.0.0"
+  }
+}

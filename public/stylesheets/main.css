@@ -1,0 +1,214 @@
+
+.container {
+ 
+}
+
+.header {
+  font-weight: bold;
+  height: 80px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 50px;
+  border-bottom: 1px solid red;
+  box-shadow: 2px 4px 8px rgb(97, 15, 15);
+  background: url(/images/nerv-bg.png) repeat #000;
+  background-size: 50px 50px;
+  clear: both;
+}
+
+
+.lighting-text {
+  color: red;
+  text-shadow: 2px 4px 8px rgb(189, 12, 12);
+}
+.lighting-border {
+  border: 1px solid red;
+  box-shadow: 2px 4px 8px rgb(97, 15, 15);
+}
+
+.nerv-select {
+  background: #000;
+  height: 40px;
+  width: auto;
+  padding: 20px;
+  font-size: 20px;
+  margin: 4px;
+  border: 1px solid red;
+
+}
+
+.machines-select {
+  margin: 10px;
+}
+
+.nerv-btn {
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  line-height: 40px;
+  background: yellow;
+  color: #000;
+  border-radius: 4px;
+  /* text-shadow: 1px -1px rgb(116, 116, 12); */
+  box-shadow: 2px 4px 8px rgb(116, 116, 12)
+}
+
+.nerv-btn:hover {
+  background:rgb(241, 240, 140);
+}
+
+.nerv-info {
+  color: red;
+  /* padding: 10px; */
+  font-family: Helvetica, Arial, Verdana, serif;
+
+}
+
+.nerv-warning-line {
+  background: url(/images/nerv-bg.png) repeat-x #000;
+  background-size: 20px 20px;
+  height: 20px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.nerv-cmd {
+  outline: none;
+  color: red;
+  background: #000;
+  margin: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  width: 80%;
+}
+
+.nerv-input {
+  outline: none;
+  color: red;
+  background: #000;
+  margin: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  width: 200px;
+}
+
+.nerv-input::placeholder {
+  color: rgb(139, 10, 10);
+}
+
+
+.nerv-monitor-host {
+  color: yellow;
+}
+
+.nerv-monitor-content {
+  margin: 10px 0 ;
+  font-size: 14px;
+  /* overflow: scroll; */
+  padding: 20px 0 ;
+  white-space: pre-wrap;
+}
+
+.nerv-monitor-error {
+  background: red;
+  color: black;
+}
+
+.nerv-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+}
+.nerv-error {
+  background: url(/images/nerv-bg.png) repeat #000;
+  background-size: 20px 20px;
+  height: 100px;
+  width: 200%;
+  margin: 20px 0;
+  color: red;
+  padding: 20px 0;
+  width: 200px;
+  border: 4px solid red;
+  border-radius: 10px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/* .nerv-error p {
+  background: #000;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 100px;
+} */
+.nerv-error-title {
+  background: #000;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.nerv-error-desc {
+  background: #000;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.block {
+  margin: 10px;
+}
+
+.machine-list {
+  padding: 0;
+  margin: 0;
+}
+
+.machine-list-item {
+  border:0;
+  border-bottom: 1px solid red;
+  padding: 6px 4px;
+  margin: 1px auto;
+}
+.machine-list-item-active {
+  cursor: pointer;
+  background: red;
+  color: black;
+}
+
+.machine-list-item:hover{
+  cursor: pointer;
+  background: yellow;
+  color: black;
+}
+
+.sub-title {
+  background: red;
+  color: black;
+  padding: 4px;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+#mainBody {
+  flex: 1; display: flex;
+}

@@ -1,0 +1,55 @@
+<% include header.html %>
+<style>
+  .func-btns {
+    margin: 10px 0;
+  }
+
+  body {
+    background: url(/images/bg.png);
+  }
+</style>
+<div id="app" class="container">
+
+  <div class="header lighting-text">
+    <div style="height: 80px; background: black; position: absolute; left: 0;">
+      <img style="height: 80px; " src="/images/零号机.jpeg">
+      <img style="height: 80px; " src="/images/初号机.jpeg">
+    </div>
+
+    <div style="display: inline-block; background: #000;font-size: 40px; padding: 0 20px; line-height: 40px;">
+      <p>NEON GENESIS EVANGELION</p>
+      <p>駕駛員登錄</p>
+    </div>
+    <img style="height: 80px; background: black; position: absolute; right: 0;" src="/images/logo.gif">
+  </div>
+  <div class="container" style="text-align: center; padding: 10px;">
+
+    <div v-if="!logining" style="height: 600px;">
+      <img style=" width: 400px;" src="/images/3.jpg">
+      <div>
+        <label class="lighting-text">User ID: </label>
+        <input v-model="username" placeholder="淀真嗣" class="nerv-input lighting-border lighting-text">
+      </div>
+
+      <div>
+        <label class="lighting-text">Passport: </label>
+        <input @keyup.enter="handelLogin" v-model="password" type="password"
+          class="nerv-input lighting-border lighting-text">
+      </div>
+
+      <div class="func-btns">
+        <button class="nerv-btn lighting-btn" @click="handelLogin">登錄 ログイン LOGIN</button>
+      </div>
+    </div>
+    <div v-else style="height: 600px;">
+      <img src="/images/logining.gif" style="margin-top: 200px;">
+    </div>
+
+
+  </div>
+
+  <div class="nerv-warning-line"></div>
+  <% include component.html %>
+</div>
+<script src="/javascripts/login.js"></script>
+<% include footer.html %>

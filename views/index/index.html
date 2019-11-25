@@ -1,0 +1,122 @@
+<% include header.html %>
+<style>
+  .func-btns {
+    margin: 10px 0;
+  }
+
+  body {
+    background: url(/images/bg.png);
+  }
+</style>
+<div id="app" class="container">
+
+  <div class="header lighting-text">
+    <div style="height: 80px; background: black; position: absolute; left: 0;">
+      <img style="height: 80px; " src="/images/零号机.jpeg">
+      <img style="height: 80px; " src="/images/初号机.jpeg">
+    </div>
+
+    <div style="display: inline-block; background: #000;font-size: 40px; padding: 0 20px; line-height: 40px;">
+      <p>NEON GENESIS EVANGELION</p>
+      <p>中央教條區</p>
+    </div>
+    <img style="height: 80px; background: black; position: absolute; right: 0;" src="/images/logo.gif">
+  </div>
+  <div class="container">
+    <div id="mainBody" :style="main_style">
+      <div style="margin:4px; width: 300px; ">
+        <div id="nervMachineList" class="lighting-text lighting-border" style=" height: 100%;  ">
+          <span class="sub-title">MACHINES</span>
+          <div style="display: flex; height: 96%;flex-direction: column;">
+            <div class="machine-list" style="flex: 1; overflow: scroll;">
+              <ul>
+                <li :class="['machine-list-item' ,set_remotes[item.host] ? 'machine-list-item-active': null ]"
+                  v-for="(item,index) of list_remotes" :key="item.host" :value="index">
+                  <span @click="handelSelectRemote(item,index)"> No.{{index}} {{item.tag}} {{item.host}}</span>
+                  <span v-if="set_remotes[item.host]">√</span>
+
+                  <span style="float: right;" @click="handelDelRemote(item,index)">x</span>
+
+                </li>
+              </ul>
+            </div>
+            <div class="machines-select" style="height:80px;">
+              <div><label class="lighting-text">機器选择:</label></div>
+              <select style="width:220px;" class="nerv-select lighting-text" v-model="remote_index">
+                <option v-for="(item,index) of default_remotes" :key="item.host" :value="index"> {{item.tag}}
+                  {{item.host}}
+                </option>
+              </select>
+              <button class="nerv-btn lighting-btn" @click="handelSetRemote(default_remotes[remote_index])">ADD</button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="nerv-info lighting-border" style="flex:1; overflow:hidden; margin: 4px;">
+        <span class="sub-title">INTERFACE</span>
+        <div v-if="monitor.loading" style="text-align: center;">
+          <img src="/images/loading.gif">
+        </div>
+        <div id="nervScreen" class="block" v-html="monitor.content" style="overflow: scroll; height: 90%;"></div>
+        <!-- <p>{{monitor.loading ? "loading...": "----"}}</p> -->
+
+      </div>
+      <div style=" width: 300px; ">
+        <div style="margin: 4px;" class="nerv-info lighting-border">
+          <span class="sub-title">HISTORY</span>
+          <div id="nervSubScreen" class="block" v-html="monitor.sub_content" style="overflow: scroll; height:200px;">
+          </div>
+        </div>
+        <div id="nervDraft" class="nerv-info lighting-border" style="margin:4px; ">
+          <span class="sub-title">WRITE PAD</span>
+          <textarea class="nerv-input "
+            style="padding: 4px;border:0;line-height: 20px; background: transparent; width: 260px; height: 200px;"
+            v-model="draft"></textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="display: flex;">
+      <div style="flex: 1;">
+        <div class="func-btns" style="margin: 20px 4px;">
+          <button class="nerv-btn lighting-btn" @click="handelClean">CLEAN SCREEN</button>
+          <button class="nerv-btn lighting-btn" @click="handelLogout">斷開神經連接 UNLINK</button>
+          <button class="nerv-btn lighting-btn" @click="handelConnect">連接測試 CONNETION TEST</button>
+
+        </div>
+
+        <div class="block">
+          <label class="lighting-text" style="font-weight: bold; ">執行目錄 ROOT PATH: </label>
+          <input v-model="command_path" style="width: 50%;" class="nerv-cmd lighting-border lighting-text">
+        </div>
+        <div class="block">
+
+          <div>
+            <label class="lighting-text" style="font-weight: bold; ">命令 COMMAND ({{history_offset}}): </label>
+            <span style="font-family:Arial, Helvetica, sans-serif; color: #EEE; ">{{last_command}}</span>
+          </div>
+          <div>
+
+            <input @keyup.enter="onSubmit" @keyup.up="handelHistoryUp" @keyup.down="handelHistoryDown" v-model="command"
+              class="nerv-cmd lighting-border lighting-text">
+            <button :disabled="sending" class="nerv-btn lighting-btn" @click="handelCommand">发送 SEND</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img style="margin: 10px 4px; width: 292px;" src="/images/magi.gif">
+      </div>
+
+
+    </div>
+    <div class="nerv-warning-line"></div>
+
+  </div>
+  <% include component.html %>
+
+</div>
+<script src="/javascripts/main.js"></script>
+<% include footer.html %>
